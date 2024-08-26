@@ -10,7 +10,6 @@ import { verify } from 'jsonwebtoken';
 export class AuthMiddleware implements NestMiddleware {
   constructor(private readonly userService: UserService) {}
   async use(req: ExpressRequestinterface, res: Response, next: NextFunction) {
-    console.log('auth middleware', req.headers);
     if (!req.headers.authorization) {
       req.user = null;
       next();
